@@ -1,0 +1,25 @@
+{
+  "yagi_2024": {
+    "event": "Typhoon Yagi 2024",
+    "confirmed_peak_date": "2024-09-09",
+    "peak_hourly_mm_hr": 22.37,
+    "peak_hourly_time": "2024-09-07 14:00:00",
+    "peak_24hr_mm": 223.14,
+    "peak_24hr_time": "2024-09-08 00:00:00",
+    "accum_3day_mm": 85.83
+  },
+  "matmo_2025": {
+    "event": "Typhoon Matmo 2025",
+    "confirmed_peak_date": "2025-10-07",
+    "peak_hourly_mm_hr": 10.54,
+    "peak_hourly_time": "2025-09-29 10:00:00",
+    "peak_24hr_mm": 140.48,
+    "peak_24hr_time": "2025-09-29 23:00:00",
+    "accum_3day_mm": 83.77,
+    "era5_dominant_peak_date": "2025-09-29",
+    "era5_dominant_peak_cause": "Precursor event (likely Bebinca/monsoon surge)",
+    "matmo_era5_peak_date": "2025-10-06",
+    "matmo_era5_peak_24hr_mm": 65.0,
+    "matmo_era5_peak_note": "Second ERA5 peak at 6-7 Oct confirms Matmo rainfall. Confirmed against NCHMF station records."
+  }
+}

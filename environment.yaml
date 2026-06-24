@@ -1,0 +1,33 @@
+# environment.yaml
+name: sar_flood
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch=2.5.1+cu121
+  - torchvision
+  - pytorch-cuda=12.1        # RTX 4070 compatible
+  - cudatoolkit=12.1
+  - numpy=1.26.*
+  - scipy
+  - scikit-image
+  - scikit-learn
+  - rasterio=1.3.*
+  - geopandas=0.14.*
+  - shapely=2.0.*
+  - fiona
+  - pyproj
+  - pandas
+  - matplotlib
+  - seaborn
+  - pyyaml
+  - tqdm
+  - pip
+  - pip:
+    - albumentations==1.4.*
+    - torch-summary
+    - thop                   # FLOPs counting
+    - pytest

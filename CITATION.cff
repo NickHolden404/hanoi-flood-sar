@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper."
+title: "SAR Flood Mapping in Hanoi — Pipeline Code"
+abstract: >
+  Multi-temporal Sentinel-1 SAR flood segmentation pipeline for Hanoi, Vietnam,
+  with external validation against CEMS and the JRC Global Flood Monitoring
+  product, deep-ensemble uncertainty quantification, and OpenStreetMap-based
+  infrastructure exposure assessment.
+type: software
+authors:
+  - family-names: "Holden"
+    given-names: "Nick"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"  # add when available
+repository-code: "<REPOSITORY_URL>"
+license: MIT
+keywords:
+  - "synthetic aperture radar"
+  - "flood mapping"
+  - "deep learning"
+  - "Sentinel-1"
+  - "U-Net"
+  - "Hanoi"
+preferred-citation:
+  type: article
+  title: >
+    Multi-Reference External Validation of Synthetic Aperture Radar Flood
+    Mapping in Hanoi with Volunteered Geographic Information-Based
+    Infrastructure Exposure Assessment
+  authors:
+    - family-names: "Holden"
+      given-names: "Nick"
+  journal: "Transactions in GIS"
+  year: 2026
+  # doi: "10.1111/tgis.XXXXX"  # add when assigned
+  # volume:
+  # issue:
+  # pages:

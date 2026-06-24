@@ -1,0 +1,18 @@
+{
+  "file": "hanoi_srtm30m_WGS84.tif",
+  "crs": "EPSG:4326 (WGS84)",
+  "columns": 576,
+  "rows": 540,
+  "pixel_size_deg": 0.000278,
+  "pixel_size_m_approx": "30.9 x 30.7 m",
+  "bbox_west": 105.75,
+  "bbox_north": 21.08,
+  "bbox_east": 105.91,
+  "bbox_south": 20.93,
+  "elev_min_m": -23.0,
+  "elev_max_m": 45.0,
+  "elev_mean_m": 9.96,
+  "elev_std_m": 3.73,
+  "nodata_value": -32768.0,
+  "file_size_mb": 0.14
+}

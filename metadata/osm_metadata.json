@@ -1,0 +1,70 @@
+{
+  "buildings": {
+    "total_features": 84522,
+    "per_district": {
+      "hoan_kiem": 8653,
+      "thanh_xuan": 14925,
+      "hoang_mai": 2559
+    },
+    "crs": "epsg:4326",
+    "geometry_types": {
+      "Polygon": 84486,
+      "Point": 30,
+      "MultiPolygon": 6
+    },
+    "issues": [
+      "none"
+    ]
+  },
+  "roads": {
+    "total_features": 60150,
+    "per_district": {
+      "hoan_kiem": 2883,
+      "thanh_xuan": 9997,
+      "hoang_mai": 10596
+    },
+    "crs": "epsg:4326",
+    "geometry_types": {
+      "LineString": 49586,
+      "Point": 10241,
+      "Polygon": 323
+    },
+    "issues": [
+      "none"
+    ]
+  },
+  "hospitals": {
+    "total_features": 111,
+    "per_district": {
+      "hoan_kiem": 12,
+      "thanh_xuan": 27,
+      "hoang_mai": 10
+    },
+    "crs": "epsg:4326",
+    "geometry_types": {
+      "Polygon": 81,
+      "Point": 27,
+      "MultiPolygon": 3
+    },
+    "issues": [
+      "none"
+    ]
+  },
+  "schools": {
+    "total_features": 504,
+    "per_district": {
+      "hoan_kiem": 30,
+      "thanh_xuan": 96,
+      "hoang_mai": 64
+    },
+    "crs": "epsg:4326",
+    "geometry_types": {
+      "Polygon": 448,
+      "Point": 54,
+      "MultiPolygon": 2
+    },
+    "issues": [
+      "none"
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+# ============================================================
+# SAR Flood Mapping — Example Config
+# ============================================================
+# Copy this file to configs/config.yaml and replace <PROJECT_ROOT>
+# with the absolute path to your local checkout of this repository.
+# Everything else can stay as-is for a default Hanoi run.
+# ============================================================
+
+project:
+  name: "SAR_FloodMapping_Hanoi"
+  crs: "EPSG:32648"
+
+# ----- Multi-seed experiment control -----
+# Seeds are passed via --seed CLI arg to each training script.
+# This list is used by aggregate_results.py to collect all runs.
+# Do NOT set a single global seed here — seed is per-run.
+experiment:
+  seeds: [0, 1, 2, 3, 4]
+  models: ["unet", "attention_unet"]
+  events: ["yagi", "matmo", "both"]
+
+paths:
+  project_root:    "<PROJECT_ROOT>"
+  data_processed:  "<PROJECT_ROOT>/data_processed"
+  stacks_dir:      "<PROJECT_ROOT>/data_processed/final_stacks"
+  norm_stacks_dir: "<PROJECT_ROOT>/data_processed/normalized"
+  norm_params:     "<PROJECT_ROOT>/data_processed/normalized/all_normalization_params.json"
+  dem_raw:         "<PROJECT_ROOT>/data_raw/dem/hanoi_srtm30m_WGS84.tif"
+  osm_root:        "<PROJECT_ROOT>/data_raw/osm"
+  output_root:     "<PROJECT_ROOT>/outputs"
+  cems_processed:  "<PROJECT_ROOT>/data_raw/cems/processed"
+
+events:
+  - name: "yagi"
+    stack_tif:      "2024_yagi_stack.tif"
+    stack_npy:      "2024_yagi_stack.npy"
+    norm_stack_tif: "2024_yagi_norm_stack.tif"
+    norm_stack_npy: "2024_yagi_norm_stack.npy"
+    norm_params:    "2024_yagi_norm_params.json"
+    date_pre:       "2024-08-31"
+    date_post:      "2024-09-12"
+    orbit:          "descending"
+    days_post_peak: 3
+  - name: "matmo"
+    stack_tif:      "2025_matmo_stack.tif"
+    stack_npy:      "2025_matmo_stack.npy"
+    norm_stack_tif: "2025_matmo_norm_stack.tif"
+    norm_stack_npy: "2025_matmo_norm_stack.npy"
+    norm_params:    "2025_matmo_norm_params.json"
+    date_pre:       "2025-09-22"
+    date_post:      "2025-10-16"
+    orbit:          "ascending"
+    days_post_peak: 9
+
+# Phase 2 stack band order: Ch1=Pre_VV | Ch2=Post_VV | Ch3=Pre_VH | Ch4=Post_VH | Ch5=ValidityMask
+dataset:
+  channels: ["VV_pre", "VH_pre", "VV_post", "VH_post", "VV_ratio", "VH_ratio", "DEM"]
+  stack_band_order: ["VV_pre", "VV_post", "VH_pre", "VH_post", "validity_mask"]
+  n_channels: 7
+  patch_size: 256
+  overlap: 128
+  min_flood_fraction: 0.01
+  split: [0.70, 0.15, 0.15]
+
+stack_meta:
+  height: 1781
+  width: 1963
+  pixel_size_m: 10.0
+  crs: "EPSG:32648"
+  aoi_utm: {left: 577490, bottom: 2313200, right: 597120, top: 2331010}
+
+labeling:
+  otsu_band: "VV_ratio"
+  vh_ratio_threshold: -2.0
+  max_slope_deg: 5.0
+  morph_open_radius: 2             # radius 1 lets too much speckle through; keep at 2
+  morph_close_radius: 3
+  yagi_vv_fixed_threshold: -0.5   # overrides Otsu — Otsu at -1.05 dB was too conservative
+  matmo_vv_fixed_threshold: -1.0  # loosened from -1.5 dB — was under-detecting receded flood
+
+normalization:
+  sar_already_normalized: true
+  sar_log_transform: false
+  dem_method: "zscore"
+  ratio_method: "zscore"
+  params_file: "<PROJECT_ROOT>/data_processed/normalized/all_normalization_params.json"
+
+training:
+  optimizer: "adam"
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+  epochs: 100
+  batch_size: 8
+  early_stopping_patience: 20
+  scheduler: "cosine"
+  mixed_precision: true
+
+loss:
+  type: "bce_dice"
+  bce_weight: 0.5
+  dice_weight: 0.5
+
+unet:
+  encoder_channels: [16, 32, 64, 128, 256]
+  dropout: 0.3
+  batch_norm: true
+
+attention_unet:
+  encoder_channels: [16, 32, 64, 128, 256]
+  dropout: 0.3
+  batch_norm: true
+  attention_type: "additive"
+
+ablation:
+  experiments:
+    - name: "full_7ch"
+      channels: ["VV_pre","VH_pre","VV_post","VH_post","VV_ratio","VH_ratio","DEM"]
+    - name: "no_dem"
+      channels: ["VV_pre","VH_pre","VV_post","VH_post","VV_ratio","VH_ratio"]
+    - name: "no_ratio"
+      channels: ["VV_pre","VH_pre","VV_post","VH_post","DEM"]
+    - name: "post_only"
+      channels: ["VV_post","VH_post","DEM"]
+
+metrics:
+  threshold: 0.5
+  tracked: ["iou","dice","precision","recall","f1","pixel_acc"]
