@@ -6,7 +6,7 @@
 
 A reproducible pipeline for multi-temporal Sentinel-1 SAR flood segmentation over Hanoi, Vietnam, with external validation against two methodologically independent operational reference products and OpenStreetMap-based infrastructure exposure assessment.
 
-This repository accompanies the *Transactions in GIS* paper **"Multi-Reference External Validation of Synthetic Aperture Radar Flood Mapping in Hanoi with Volunteered Geographic Information–Based Infrastructure Exposure Assessment"** (Holden, 2026, [DOI: 10.1111/tgis.70342](https://doi.org/10.1111/tgis.70342)). It contains the complete pipeline: data acquisition, SAR preprocessing, deep-learning segmentation, ensemble uncertainty quantification, and downstream exposure analysis.
+This repository accompanies the *Transactions in GIS* paper **"Multi-Reference External Validation of Synthetic Aperture Radar Flood Mapping in Hanoi with Volunteered Geographic Information–Based Infrastructure Exposure Assessment"** (Baranenkov, 2026, [DOI: 10.1111/tgis.70342](https://doi.org/10.1111/tgis.70342)). It contains the complete pipeline: data acquisition, SAR preprocessing, deep-learning segmentation, ensemble uncertainty quantification, and downstream exposure analysis.
 
 > **Scope of this repository.** Source code, configuration, and dataset descriptors only. Raw Sentinel-1 scenes (~600 MB), derived stacks (~47 GB), trained checkpoints (~1 GB), and result artefacts are not included — they are fully reproducible from the scripts using the public data sources documented below.
 
@@ -220,11 +220,11 @@ Same-date agreement against the JRC Global Flood Monitoring product is shown bel
 If you use this code, please cite the paper:
 
 ```bibtex
-@article{Holden2026SARFloodHanoi,
+@article{Baranenkov2026SARFloodHanoi,
   title   = {Multi-Reference External Validation of Synthetic Aperture Radar
              Flood Mapping in Hanoi with Volunteered Geographic
              Information--Based Infrastructure Exposure Assessment},
-  author  = {Holden, Nick},
+  author  = {Baranenkov, Vladislav},
   journal = {Transactions in GIS},
   year    = {2026},
   doi     = {10.1111/tgis.70342}

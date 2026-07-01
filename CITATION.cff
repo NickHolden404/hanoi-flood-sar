@@ -8,8 +8,8 @@ abstract: >
   infrastructure exposure assessment.
 type: software
 authors:
-  - family-names: "Holden"
-    given-names: "Nick"
+  - family-names: "Baranenkov"
+    given-names: "Vladislav"
     # orcid: "https://orcid.org/0000-0000-0000-0000"  # add when available
 repository-code: "<REPOSITORY_URL>"
 license: MIT
