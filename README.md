@@ -1,12 +1,13 @@
 # SAR Flood Mapping in Hanoi
 
-[![DOI](https://img.shields.io/badge/DOI-10.1111%2Ftgis.70342-blue)](https://doi.org/10.1111/tgis.70342)
+[![Paper DOI](https://img.shields.io/badge/Paper_DOI-10.1111%2Ftgis.70342-blue)](https://doi.org/10.1111/tgis.70342)
+[![Software DOI](https://img.shields.io/badge/Software_DOI-10.5281%2Fzenodo.24055757-1682D4)](https://doi.org/10.5281/zenodo.24055757)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 
 A reproducible pipeline for multi-temporal Sentinel-1 SAR flood segmentation over Hanoi, Vietnam, with external validation against two methodologically independent operational reference products and OpenStreetMap-based infrastructure exposure assessment.
 
-This repository accompanies the *Transactions in GIS* paper **"Multi-Reference External Validation of Synthetic Aperture Radar Flood Mapping in Hanoi with Volunteered Geographic Information–Based Infrastructure Exposure Assessment"** (Baranenkov, 2026, [DOI: 10.1111/tgis.70342](https://doi.org/10.1111/tgis.70342)). It contains the complete pipeline: data acquisition, SAR preprocessing, deep-learning segmentation, ensemble uncertainty quantification, and downstream exposure analysis.
+This repository accompanies the *Transactions in GIS* paper **"Multi-Reference External Validation of Synthetic Aperture Radar Flood Mapping in Hanoi with Volunteered Geographic Information–Based Infrastructure Exposure Assessment"** (Baranenkov, 2026, [DOI: 10.1111/tgis.70342](https://doi.org/10.1111/tgis.70342)). It contains the complete pipeline: data acquisition, SAR preprocessing, deep-learning segmentation, ensemble uncertainty quantification, and downstream exposure analysis. The release used for the paper is archived on Zenodo ([DOI: 10.5281/zenodo.24055757](https://doi.org/10.5281/zenodo.24055757)).
 
 > **Scope of this repository.** Source code, configuration, and dataset descriptors only. Raw Sentinel-1 scenes (~600 MB), derived stacks (~47 GB), trained checkpoints (~1 GB), and result artefacts are not included — they are fully reproducible from the scripts using the public data sources documented below.
 
@@ -228,6 +229,20 @@ If you use this code, please cite the paper:
   journal = {Transactions in GIS},
   year    = {2026},
   doi     = {10.1111/tgis.70342}
+}
+```
+
+To cite the archived software release specifically:
+
+```bibtex
+@software{Baranenkov2026SARFloodCode,
+  title     = {SAR Flood Mapping in Hanoi --- Pipeline Code},
+  author    = {Baranenkov, Vladislav},
+  year      = {2026},
+  publisher = {Zenodo},
+  version   = {flood-sar},
+  doi       = {10.5281/zenodo.24055757},
+  url       = {https://doi.org/10.5281/zenodo.24055757}
 }
 ```
 

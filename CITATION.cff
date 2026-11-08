@@ -11,7 +11,8 @@ authors:
   - family-names: "Baranenkov"
     given-names: "Vladislav"
     # orcid: "https://orcid.org/0000-0000-0000-0000"  # add when available
-repository-code: "<REPOSITORY_URL>"
+doi: "10.5281/zenodo.24055757"
+repository-code: "https://github.com/NickHolden404/hanoi-flood-sar"
 license: MIT
 keywords:
   - "synthetic aperture radar"
@@ -27,8 +28,8 @@ preferred-citation:
     Mapping in Hanoi with Volunteered Geographic Information-Based
     Infrastructure Exposure Assessment
   authors:
-    - family-names: "Holden"
-      given-names: "Nick"
+    - family-names: "Baranenkov"
+      given-names: "Vladislav"
   journal: "Transactions in GIS"
   year: 2026
   doi: "10.1111/tgis.70342"
